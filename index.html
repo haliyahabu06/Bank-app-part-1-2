@@ -10,179 +10,199 @@
     <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
 
-        body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #5fadc3; 
+  color: #1a1f36;            
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-        #app {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 400px;
-            border-radius: 28px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            padding: 32px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-        }
+#app {
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 24px; 
+  
+  
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.05), 
+              0px 20px 25px -5px rgba(0, 0, 0, 0.08);
+}
 
-       
-        h1, [id="#app-title"] {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0f172a;
-            text-transform: capitalize;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+#app h1, #app [id="#app-title"] {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0a2540; 
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+  text-transform: capitalize; 
+}
 
-        
-        h1::before {
-            content: '';
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: #4f46e5;
-            border-radius: 50%;
-        }
 
-      
-        #balance-box {
-            background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
-            color: #ffffff;
-            padding: 24px;
-            border-radius: 20px;
-            box-shadow: 0 8px 16px rgba(79, 70, 229, 0.25);
-        }
+#balance-box {
+  background: linear-gradient(135deg, #635bff, #4b44d1); 
+  color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  text-align: center;
+  box-shadow: 0px 10px 20px rgba(99, 91, 255, 0.25);
+}
 
-        #balance-label {
-            font-size: 0.85rem;
-            font-weight: 500;
-            opacity: 0.85;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 6px;
-        }
+#balance-label {
 
-        #balance {
-            font-size: 2.25rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #c4c1ff;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
 
-        #balance::before {
-            content: '₦';
-            margin-right: 4px;
-        }
+#balance {
+  
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin: 0;
+}
 
-      
-        #entry-box {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
 
-        #amount-label {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #334155;
-        }
 
-        #amount {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #0f172a;
-            outline: none;
-            transition: all 0.2s ease;
-            background-color: #f8fafc;
-        }
+#balance::before {
+  content: "$";
+  margin-right: 2px;
+}
 
-        #amount:focus {
-            border-color: #4f46e5;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-        }
 
-    
-        #button-box {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
 
-     
-        #button-box button {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 12px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-transform: capitalize;
-        }
+#entry-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
 
-        #button-box button:active {
-            transform: scale(0.98);
-        }
+#amount-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #4f5b76;
+  
+  text-transform: uppercase; 
+  letter-spacing: 0.5px;
+}
 
-        .action-credit, #credit-btn {
-            background-color: #3d84c3;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
-        }
+#amount {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 14px 16px;
+  border: 2px solid #e3e8ee;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  color: #1a1f36;
+  transition: all 0.2s ease;
+}
 
-        .action-credit:hover, #credit-btn:hover {
-            background-color: #1db655;
-        }
 
-        
-        .action-debit, #debit-btn {
-            background-color: #447def;
-            color: #ffffff;
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
-        }
+#amount:focus {
+  outline: none;
+  border-color: #635bff;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 0px 3px rgba(99, 91, 255, 0.15);
+}
 
-        .action-debit:hover, #debit-btn:hover {
-            background-color: #d11e1e;
-        }
 
-      
-        #message {
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-align: center;
-            color: #4f46e5;
-            min-height: 18px;
-        }
+#button-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-       
-        #note {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            text-align: center;
-            margin-top: 8px;
-        }
+
+.action-credit, .action-debit {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  
+  text-transform: capitalize; 
+}
+
+
+#credit-btn {
+  background-color: #00d46a; 
+  color: #ffffff;
+  
+
+  box-shadow: 0px 4px 12px rgba(0, 212, 106, 0.2);
+}
+
+#credit-btn:hover {
+  background-color: #00bf5f;
+  box-shadow: 0px 6px 16px rgba(0, 212, 106, 0.3);
+}
+
+
+#debit-btn {
+  background-color: #f7fafc;
+  border: 2px solid #e3e8ee;
+  color: #a3322a;
+}
+
+#debit-btn:hover {
+  background-color: #da4316;
+  color: #d1b8b5;
+}
+
+
+.action-credit:active, .action-debit:active {
+  transform: scale(0.98);
+  box-shadow: none;
+}
+
+#message {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* ==========================================
+   6) FOOTER NOTE (TEXT-DECORATION)
+   ========================================== */
+#note {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #a3acb9;
+  margin-top: 16px;
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  
+  /* 2) TEXT-DECORATION: Apply an elegant underline indicator directly to the note text */
+  text-decoration: underline;
+  text-decoration-color: rgba(99, 91, 255, 0.3);
+  text-underline-offset: 4px;
+}
+
+#note:hover {
+  color: #635bff;
+  text-decoration-color: #635bff;
+}
     </style>
 </head>
 <body>
