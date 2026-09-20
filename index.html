@@ -7,208 +7,183 @@
     
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
     
     <style>
+        body {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          background-color: #5fadc3; 
+          color: #1a1f36;            
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
 
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background-color: #5fadc3; 
-  color: #1a1f36;            
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+        #app {
+          background-color: #ffffff;
+          width: 100%;
+          max-width: 400px;
+          padding: 30px;
+          border-radius: 24px; 
+          box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.05), 
+                      0px 20px 25px -5px rgba(0, 0, 0, 0.08);
+        }
 
-#app {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 400px;
-  padding: 30px;
-  border-radius: 24px; 
-  
-  
-  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.05), 
-              0px 20px 25px -5px rgba(0, 0, 0, 0.08);
-}
+        #app h1, #app [id="#app-title"] {
+          font-size: 24px;
+          font-weight: 700;
+          color: #0a2540; 
+          text-align: center;
+          margin-top: 0;
+          margin-bottom: 24px;
+          letter-spacing: -0.5px;
+          text-transform: capitalize; 
+        }
 
-#app h1, #app [id="#app-title"] {
-  font-size: 24px;
-  font-weight: 700;
-  color: #0a2540; 
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 24px;
-  letter-spacing: -0.5px;
-  text-transform: capitalize; 
-}
+        #balance-box {
+          background: linear-gradient(135deg, #635bff, #4b44d1); 
+          color: #ffffff;
+          padding: 24px;
+          border-radius: 16px;
+          margin-bottom: 24px;
+          text-align: center;
+          box-shadow: 0px 10px 20px rgba(99, 91, 255, 0.25);
+        }
 
+        #balance-label {
+          text-transform: uppercase;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          color: #c4c1ff;
+          margin-top: 0;
+          margin-bottom: 8px;
+        }
 
-#balance-box {
-  background: linear-gradient(135deg, #635bff, #4b44d1); 
-  color: #ffffff;
-  padding: 24px;
-  border-radius: 16px;
-  margin-bottom: 24px;
-  text-align: center;
-  box-shadow: 0px 10px 20px rgba(99, 91, 255, 0.25);
-}
+        #balance {
+          font-size: 36px;
+          font-weight: 700;
+          letter-spacing: -1px;
+          margin: 0;
+        }
 
-#balance-label {
+        #balance::before {
+          content: "$";
+          margin-right: 2px;
+        }
 
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: #c4c1ff;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
+        #entry-box {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-bottom: 20px;
+        }
 
-#balance {
-  
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: -1px;
-  margin: 0;
-}
+        #amount-label {
+          font-size: 13px;
+          font-weight: 600;
+          color: #4f5b76;
+          text-transform: uppercase; 
+          letter-spacing: 0.5px;
+        }
 
+        #amount {
+          font-size: 18px;
+          font-weight: 500;
+          padding: 14px 16px;
+          border: 2px solid #e3e8ee;
+          border-radius: 12px;
+          background-color: #f8fafc;
+          color: #1a1f36;
+          transition: all 0.2s ease;
+        }
 
+        #amount:focus {
+          outline: none;
+          border-color: #635bff;
+          background-color: #ffffff;
+          box-shadow: 0px 0px 0px 3px rgba(99, 91, 255, 0.15);
+        }
 
-#balance::before {
-  content: "$";
-  margin-right: 2px;
-}
+        #button-box {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+        }
 
+        .action-credit, .action-debit {
+          flex: 1;
+          padding: 14px;
+          border: none;
+          border-radius: 12px;
+          font-size: 15px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.15s ease;
+          text-transform: capitalize; 
+        }
 
+        #credit-btn {
+          background-color: #00d46a; 
+          color: #ffffff;
+          box-shadow: 0px 4px 12px rgba(0, 212, 106, 0.2);
+        }
 
-#entry-box {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 20px;
-}
+        #credit-btn:hover {
+          background-color: #00bf5f;
+          box-shadow: 0px 6px 16px rgba(0, 212, 106, 0.3);
+        }
 
-#amount-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #4f5b76;
-  
-  text-transform: uppercase; 
-  letter-spacing: 0.5px;
-}
+        #debit-btn {
+          background-color: #f7fafc;
+          border: 2px solid #e3e8ee;
+          color: #a3322a;
+        }
 
-#amount {
-  font-size: 18px;
-  font-weight: 500;
-  padding: 14px 16px;
-  border: 2px solid #e3e8ee;
-  border-radius: 12px;
-  background-color: #f8fafc;
-  color: #1a1f36;
-  transition: all 0.2s ease;
-}
+        #debit-btn:hover {
+          background-color: #da4316;
+          color: #d1b8b5;
+        }
 
+        .action-credit:active, .action-debit:active {
+          transform: scale(0.98);
+          box-shadow: none;
+        }
 
-#amount:focus {
-  outline: none;
-  border-color: #635bff;
-  background-color: #ffffff;
-  box-shadow: 0px 0px 0px 3px rgba(99, 91, 255, 0.15);
-}
+        #message {
+          width: 100%;
+          text-align: center;
+          margin: 0;
+          font-size: 14px;
+          font-weight: 600;
+        }
 
+        #note {
+          width: 100%;
+          text-align: center;
+          font-size: 12px;
+          color: #a3acb9;
+          margin-top: 16px;
+          margin-bottom: 0;
+          cursor: pointer;
+          transition: color 0.2s ease;
+          text-decoration: underline;
+          text-decoration-color: rgba(99, 91, 255, 0.3);
+          text-underline-offset: 4px;
+        }
 
-#button-box {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-
-.action-credit, .action-debit {
-  flex: 1;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  
-  text-transform: capitalize; 
-}
-
-
-#credit-btn {
-  background-color: #00d46a; 
-  color: #ffffff;
-  
-
-  box-shadow: 0px 4px 12px rgba(0, 212, 106, 0.2);
-}
-
-#credit-btn:hover {
-  background-color: #00bf5f;
-  box-shadow: 0px 6px 16px rgba(0, 212, 106, 0.3);
-}
-
-
-#debit-btn {
-  background-color: #f7fafc;
-  border: 2px solid #e3e8ee;
-  color: #a3322a;
-}
-
-#debit-btn:hover {
-  background-color: #da4316;
-  color: #d1b8b5;
-}
-
-
-.action-credit:active, .action-debit:active {
-  transform: scale(0.98);
-  box-shadow: none;
-}
-
-#message {
-  width: 100%;
-  text-align: center;
-  margin: 0;
-  font-size: 14px;
-}
-
-/* ==========================================
-   6) FOOTER NOTE (TEXT-DECORATION)
-   ========================================== */
-#note {
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-  color: #a3acb9;
-  margin-top: 16px;
-  margin-bottom: 0;
-  cursor: pointer;
-  transition: color 0.2s ease;
-  
-  /* 2) TEXT-DECORATION: Apply an elegant underline indicator directly to the note text */
-  text-decoration: underline;
-  text-decoration-color: rgba(99, 91, 255, 0.3);
-  text-underline-offset: 4px;
-}
-
-#note:hover {
-  color: #635bff;
-  text-decoration-color: #635bff;
-}
+        #note:hover {
+          color: #635bff;
+          text-decoration-color: #635bff;
+        }
     </style>
 </head>
 <body>
 
     <div id="app">
-        <!-- Kept your exact ID attribute typo structure intact -->
         <h1 id="#app-title">haliyah's bank</h1>
         
         <div id="balance-box">
@@ -228,6 +203,54 @@ body {
             <p id="note">With Terms and Condition Applied</p>
         </div>
     </div>
-    
+
+    <script>
+        // 1. DOM Target Setup
+        const balanceDisplay = document.getElementById("balance");
+        const amountInput = document.getElementById("amount");
+        const messageDisplay = document.getElementById("message");
+
+        let currentBalance = Number(balanceDisplay.innerText);
+
+        // 3. Attach click event actions
+        document.getElementById("credit-btn").addEventListener("click", handleCredit);
+        document.getElementById("debit-btn").addEventListener("click", handleDebit);
+
+        // 4. Credit handler
+        function handleCredit() {
+          let inputAmount = Number(amountInput.value);
+
+          if (inputAmount <= 0 || isNaN(inputAmount)) {
+            messageDisplay.innerText = "Please enter a valid amount to credit.";
+            messageDisplay.style.color = "#a3322a";
+          } else {
+            currentBalance = currentBalance + inputAmount;
+            balanceDisplay.innerText = currentBalance;
+            messageDisplay.innerText = "Successfully credited $" + inputAmount + "!";
+            messageDisplay.style.color = "#00d46a";
+            amountInput.value = ""; 
+          }
+        }
+
+        function handleDebit() {
+          let inputAmount = Number(amountInput.value);
+
+          if (inputAmount <= 0 || isNaN(inputAmount)) {
+            messageDisplay.innerText = "Please enter a valid amount to debit.";
+            messageDisplay.style.color = "#a3322a";
+          } 
+          else if (inputAmount > currentBalance) {
+            messageDisplay.innerText = "Transaction denied: Insufficient funds!";
+            messageDisplay.style.color = "#a3322a";
+          } 
+          else {
+            currentBalance = currentBalance - inputAmount;
+            balanceDisplay.innerText = currentBalance;
+            messageDisplay.innerText = "Successfully debited $" + inputAmount + "!";
+            messageDisplay.style.color = "#00d46a";
+            amountInput.value = ""; 
+          }
+        }
+    </script>
 </body>
 </html>
